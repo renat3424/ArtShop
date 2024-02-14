@@ -1,0 +1,6 @@
+{
+    "ConnectionStrings": {
+
+        "Db": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Db;Integrated Security=True;Connect Timeout=30;MultipleActiveResultSets=true;"
+    }
+}

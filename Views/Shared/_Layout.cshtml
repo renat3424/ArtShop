@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Купите картину: @ViewBag.Title </title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="container">
+       
+        <nav class="navbar navbar-dark bg-danger  navbar-expand-md">
+            <h1 class="navbar-brand">
+                Добро пожаловать на сайт покупки картин
+            </h1>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#theMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="theMenu" class="navbar-collapse collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" asp-controller="App" asp-action="Index">Главная страница</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="App" asp-action="About">О нас</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="App" asp-action="Contact">Связаться с нами</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="App" asp-action="Shop">Магазин</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        <li class="nav-item"><a class="nav-link" asp-controller="Account" asp-action="Logout">Выйти</a></li>
+                    }
+                    else
+                    {
+                        <li class="nav-item"><a class="nav-link" asp-controller="Account" asp-action="Login">Войти</a></li>
+                    }
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="container">
+        <h2 class="text-center"> @ViewBag.Title</h2>
+
+        @RenderBody()
+    </section>
+
+
+
+
+    <footer class="container"><div class="text-center">Copyright</div></footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/js/JavaScript.js"></script>
+
+    @RenderSection("Scripts", false)
+</body>
+</html>
